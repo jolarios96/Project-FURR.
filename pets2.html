@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bujumbura Data</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+        <head>
+        </head>
+        <body>
+            <form>
+                    <legend> Find A Cat Near You! </legend>
+                    <label for="zip">Zip</label>
+                    <input type="text" name="zip" id="zip">
+                    <label for="pet">pet</label>
+                    <input type="text" name="pet" id="pet">
+
+                    <input type="submit" id="submitZip">
+            </form>
+            <div class='PetName'></div>
+            <div class='PetId'>New Div</div>
+            <div class='PetPhoto'>Photo</div>
+            <div class='PetDescription'>New Div</div>
+            
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script>
+            var apiKey = 'a77d12da6b9ce71fa08cfe8f09710b6a'; // assign our key to a variable, easier to read
+
+// the next line and function set up the button in our html to be clickable and reactive 
+document.addEventListener('DOMContentLoaded', bindButtons);
+
+function bindButtons(){
+	document.getElementById('submitZip').addEventListener('click', function(event){
+		event.preventDefault();
+		var zip = document.getElementById('zip').value; // this line gets the zip code from the form entry
+		var url = 'http://api.petfinder.com/pet.getRandom';
+        var pet = document.getElementById('pet').value;;
+        
+		
+		// Within $.ajax{...} is where we fill out our query 
+		$.ajax({
+			url: url,
+			jsonp: "callback",
+			dataType: "jsonp",
+			data: {
+				key: apiKey,
+				animal: pet,
+				'location': zip,
+				output: 'basic',
+				format: 'json'
+			},
+			// Here is where we handle the response we got back from Petfinder
+			success: function( response ) {
+               /// debugger;
+
+
+ console.log("fuck",response);
+            
+
+
+
+                var 
+                petName = response.petfinder.pet.name.$t
+                petId = response.petfinder.pet.id.$t
+                petPhoto = response.petfinder.pet.id.$t
+                petDescription = response.petfinder.pet.description.$t
+                
+                petPhotosize = response.petfinder.pet.media.photos.photo[0].$t
+               
+                console.log("taco",petName);
+                console.log("taco",petPhotosize);
+                $(".PetName").text(petName);
+                $(".PetId").text(petId);
+                $(".PetDescription").text(petDescription);
+                 var pImg = $('<img />');
+                pImg.attr('src',petPhotosize).appendTo(".PetPhoto")
+              //  $(".PetPhoto").text( $( "img" ) );
+                //$(".PetPhoto").attr("src",petPhotosize);
+      
+                 // $(".PetPhoto").text(petPhotosize);
+                
+               // $(".newDiv").text(petName);
+               // $(".newDiv").text(petName);.
+             ///   console.log("taco",catName);
+		///		var img = response.petfinder.pet.media.photos.photo[0].$t;
+		///		var id = response.petfinder.pet.id.$t;
+
+			////	var newName = document.createElement('a');
+			///	var newDiv = document.createElement('div');
+			///	newName.textContent = catName;
+			///	newName.href = 'https://www.petfinder.com/petdetail/' + id;
+
+		////		var newImg = document.createElement('img');
+		///		newImg.src = img;
+		////		
+		///		var list = document.createElement("div");
+	///			list.setAttribute("id", "List");
+	////			document.body.appendChild(list);
+
+		////		newDiv.appendChild(newName);
+		///		list.appendChild(newDiv);
+		///		list.appendChild(newImg); 
+          ///      $('#newDiv').text(catName);
+
+                console.log(response);
+			}
+            
+		});
+		})
+
+}
+            
+            </script>
+        </body>
+    </html>
+</body>
+
+</html>
