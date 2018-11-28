@@ -9,5 +9,20 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
+// database reference
 var storage = firebase.storage();
+
+// On click approve
+$("#").on("click", function (event) {
+    // event.preventDefault();
+
+    // add Animal to Array of 'Favorites' in firebase
+    // add Animal to Array of 'Seen' in firebase
+});
+
+// On click disapprove
+$("#").on("click", function (event) {
+    // event.preventDefault();
+
+    // add Animal to Array of 'Seen' in firebase
+});
