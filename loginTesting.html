@@ -26,7 +26,7 @@
     <script type="text/javascript">
         // FirebaseUI config.
         var uiConfig = {
-            signInSuccessUrl: '<url-to-redirect-to-on-success>',
+            signInSuccessUrl: 'index.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -35,11 +35,11 @@
                 //   firebase.auth.GithubAuthProvider.PROVIDER_ID,
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
                 //   firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+                firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
             ],
             // tosUrl and privacyPolicyUrl accept either url string or a callback
             // function.
-            
+
             // Terms of service url/callback.
             // tosUrl: '<your-tos-url>',
             tosUrl: '#',
