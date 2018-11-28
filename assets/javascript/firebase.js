@@ -16,18 +16,20 @@ var storage = firebase.storage();
 $("#").on("click", function (event) {
     // event.preventDefault();
 
-    // add Animal to Array of 'Favorites' in firebase
-    // add Animal to Array of 'Seen' in firebase
+    // add Animal ID to Array of 'Favorites' in firebase
+    // add Animal ID to Array of 'Seen' in firebase
 });
 
-// On click disapprove
+// On click pass
 $("#").on("click", function (event) {
     // event.preventDefault();
 
-    // add Animal to Array of 'Seen' in firebase
+    // add Animal ID to Array of 'Seen' in firebase
 });
 
 // alternative click function
 $("#").on("click", "#id or .class of child element", function (event) {
     // event.preventDefault();
+
+    // some code here
 });
